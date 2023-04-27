@@ -1,0 +1,144 @@
+
+R version 4.2.2 (2022-10-31) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.79 (8160) aarch64-apple-darwin20]
+
+[History restored from /Users/gauthamnair/.Rapp.history]
+
+> dailykos= read.csv("dailykos.csv")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'dailykos.csv': No such file or directory
+> dailykos= read.csv("dailykos.csv")
+> kosDist = dist(dailykos, method=“euclidean”)
+Error: unexpected input in "kosDist = dist(dailykos, method=“"
+> kosDist = dist(dailykos, method="euclidean")
+> kosHierClust = hclust(kosDist, method="ward.D2")
+> plot(kosHierClust)
+> plot(kosHierClust)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> HierClustter1= dailykos %>% filter(heirGroups==1)
+Error in `filter()`:
+ℹ In argument: `heirGroups == 1`.
+Caused by error:
+! object 'heirGroups' not found
+Run `rlang::last_trace()` to see where the error occurred.
+> heirGroups??
++ 
++ 
++ s
+Error in help.search("s", fields = "heirGroups", package = NULL) : 
+  incorrect field specification
+> ??heirGroups
+starting httpd help server ... done
+> hierGroupps
+Error: object 'hierGroupps' not found
+> hierGroups
+Error: object 'hierGroups' not found
+> hierGroups= cutree(kosHeirClust, k+7)
+Error in nrow(tree$merge) : object 'kosHeirClust' not found
+> 
+> hierGroups= cutree(kosHeirClust, k=7)
+Error in nrow(tree$merge) : object 'kosHeirClust' not found
+> hierGroups= cutree(kosHierClust, k=7)
+> HierClustter1= dailykos %>% filter(hierGroups==1)
+> HierCluster1= dailykos %>% filter(hierGroups==1)
+> HierCluster2= dailykos %>% filter(hierGroups==2)
+> HierCluster3= dailykos %>% filter(hierGroups==3)
+> HierCluster4= dailykos %>% filter(hierGroups==4)
+> HierCluster5= dailykos %>% filter(hierGroups==5)
+> HierCluster6= dailykos %>% filter(hierGroups==6)
+> HierCluster7= dailykos %>% filter(hierGroups==7)
+> tail(sort(colMeans(HierCluster1)))
+  november   democrat       poll      kerry       bush   Document 
+  1.176113   1.224696   1.336032   1.722672   2.202429 247.506073 
+> tail(sort(colMeans(HierCluster2)))
+  democrat   november       poll      kerry       bush   Document 
+  1.128834   1.139059   1.214724   1.351738   2.145194 738.993865 
+> tail(sort(colMeans(HierCluster3)))
+        war        poll        iraq       kerry        bush    Document 
+   1.199552    1.206278    1.300448    1.544843    2.890135 1206.506726 
+> tail(sort(colMeans(HierCluster4)))
+ republican       house    democrat       kerry        bush    Document 
+   1.130435    1.192547    1.813665    1.869565    2.593168 1590.490683 
+> tail(sort(colMeans(HierCluster5)))
+       bush        poll       kerry    democrat        dean    Document 
+   1.432866    1.823647    1.845691    2.190381    2.412826 2001.000000 
+> tail(sort(colMeans(HierCluster6)))
+   november       state        poll        bush    democrat    Document 
+   1.099119    1.129956    1.669604    1.777533    2.013216 2477.504405 
+> tail(sort(colMeans(HierCluster7)))
+       vote  republican        poll       kerry        bush    Document 
+   1.082645    1.217631    1.402204    1.725895    2.969697 3067.497245 
+> set.seed(1000)
+> KmeansCluster = kmeans(dailykos, centers=7)
+> library(dplyr)
+> KmeansCluster1 = dailykos %>% filter(KmeansCluster$cluster == 1)
+> KmeansCluster1 = dailykos %>% filter(KmeansCluster$cluster == 2)
+> KmeansCluster1 = dailykos %>% filter(KmeansCluster$cluster == 3)
+> KmeansCluster1 = dailykos %>% filter(KmeansCluster$cluster == 4)
+> KmeansCluster1 = dailykos %>% filter(KmeansCluster$cluster == 5)
+> tail(sort(colMeans(KmeansCluster1)))
+      state        bush        dean        poll    democrat    Document 
+   1.246436    1.700611    1.708758    1.784114    2.197556 2201.000000 
+> tail(sort(colMeans(KmeansCluster2)))
+Error in is.data.frame(x) : object 'KmeansCluster2' not found
+> KmeansCluster1 = dailykos %>% filter(KmeansCluster$cluster == 1)
+> KmeansCluster2 = dailykos %>% filter(KmeansCluster$cluster == 2)
+> KmeansCluster3 = dailykos %>% filter(KmeansCluster$cluster == 3)
+> KmeansCluster4 = dailykos %>% filter(KmeansCluster$cluster == 4)
+> KmeansCluster5 = dailykos %>% filter(KmeansCluster$cluster == 5)
+> tail(sort(colMeans(KmeansCluster1)))
+       poll        dean    democrat        bush       kerry    Document 
+   1.359184    1.720408    2.022449    2.057143    2.122449 1710.500000 
+> tail(sort(colMeans(KmeansCluster2)))
+        war        poll        iraq       kerry        bush    Document 
+   1.188139    1.192229    1.231084    1.566462    2.836401 1221.000000 
+> tail(sort(colMeans(KmeansCluster3)))
+       vote  republican        poll       kerry        bush    Document 
+   1.103659    1.264228    1.288618    1.497967    2.939024 3184.500000 
+> tail(sort(colMeans(KmeansCluster4)))
+  november   democrat       poll      kerry       bush   Document 
+  1.190574   1.225410   1.329918   1.741803   2.213115 244.500000 
+> tail(sort(colMeans(KmeansCluster5)))
+      state        bush        dean        poll    democrat    Document 
+   1.246436    1.700611    1.708758    1.784114    2.197556 2201.000000 
+> table(KmeansCluster$cluster, hierGroups)
+   hierGroups
+      1   2   3   4   5   6   7
+  1   0   0   0 286 204   0   0
+  2   0   7 446  36   0   0   0
+  3   0   0   0   0   0   0 492
+  4 488   0   0   0   0   0   0
+  5   0   0   0   0 295 196   0
+  6   6 482   0   0   0   0   0
+  7   0   0   0   0   0 258 234
+> 
